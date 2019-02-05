@@ -1,4 +1,5 @@
 import React from 'react'
+import {burger} from '../constants'
 
 class Page extends React.Component {
   state = {
@@ -8,10 +9,10 @@ class Page extends React.Component {
     statusMessage: null,
   }
   componentDidMount () {
-    console.log('liff', window.liff)
     window.addEventListener('load', this.initialize);
   }
-  initialize() {
+
+  initialize = () => {
     liff.init(async (data) => {
       let profile = await liff.getProfile()
       this.setState({
@@ -22,14 +23,21 @@ class Page extends React.Component {
       })
     })
   }
-  closeApp(event) {
-    event.preventDefault()
-    liff.sendMessages([{
+
+  closeApp = async (e) => {
+    e.preventDefault()
+    await liff.sendMessages([{
       type: 'text',
       text: "Thank you, Bye!"
-    }]).then(() => {
-      liff.closeWindow()
-    })
+    }])
+    liff.closeWindow()
+  }
+  sendFlex = async (e) => {
+    e.preventDefault()
+    await liff.sendMessages([
+      {...burger}
+    ])
+    liff.closeWindow()
   }
   render () {
     return (
@@ -38,6 +46,8 @@ class Page extends React.Component {
           Hello
         </h1>
         <button onClick={this.closeApp}>close</button>
+
+        <button onClick={this.sendFlex}>Sending Flex Message</button>
       </div>
     )
   }
