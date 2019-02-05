@@ -37,7 +37,7 @@ class Page extends React.Component {
         <h1>
           Hello
         </h1>
-        <button onClick={this.closeApp}></button>
+        <button onClick={this.closeApp}>close</button>
       </div>
     )
   }
