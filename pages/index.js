@@ -35,7 +35,27 @@ class Page extends React.Component {
   sendFlex = async (e) => {
     e.preventDefault()
     await liff.sendMessages([
-      {...burger}
+      {
+        "type": "flex",
+        "altText": "This is a Flex Message",
+        "contents": {
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Hello,"
+              },
+              {
+                "type": "text",
+                "text": "World!"
+              }
+            ]
+          }
+        }
+      }
     ])
     liff.closeWindow()
   }
@@ -46,7 +66,6 @@ class Page extends React.Component {
           Hello
         </h1>
         <button onClick={this.closeApp}>close</button>
-
         <button onClick={this.sendFlex}>Sending Flex Message</button>
       </div>
     )
