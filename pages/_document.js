@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
         <Head>
           <style>{`body { margin: 0 } /* custom! */`}</style>
           <script src="https://d.line-scdn.net/liff/1.0/sdk.js"></script>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
         <body className="custom_class">
           <Main />
