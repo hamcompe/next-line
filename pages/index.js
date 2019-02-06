@@ -1,5 +1,6 @@
 import React from 'react'
 import {burger} from '../constants'
+import {Button, Radio, Checkbox} from 'antd'
 
 class Page extends React.Component {
   state = {
@@ -67,6 +68,11 @@ class Page extends React.Component {
         </h1>
         <button onClick={this.closeApp}>close</button>
         <button onClick={this.sendFlex}>Sending Flex Message</button>
+        <Button>test</Button>
+        <Radio>test</Radio>
+        <Checkbox>a1</Checkbox>
+        <Checkbox>a2</Checkbox>
+        <Checkbox>a3</Checkbox>
       </div>
     )
   }
